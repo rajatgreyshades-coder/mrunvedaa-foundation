@@ -810,7 +810,6 @@ ul {
   display: flex;
   align-items: center;
   /* flex-wrap: wrap; */
-  flex: 1;
 }
 
 .main-menu__logo {
@@ -824,9 +823,8 @@ ul {
   position: relative;
   display: block;
   background-color: (#ec6b21);
-  /* padding: 16px 60px 16px;
-  padding-left: 0; */
-  padding: 16px 20px 16px 0;
+  padding: 16px 60px 16px;
+  padding-left: 0;
   z-index: 1;
 }
 
@@ -844,19 +842,11 @@ ul {
 .main-menu__main-menu-box {
   position: relative;
   display: block;
-  flex: 1;
 }
 
 .main-menu__right {
   position: relative;
   display: block;
-  /* justify-content: space-between; */
-}
-
-.main-menu .main-menu__list {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
 }
 
 .main-menu__join-us-search-btn-box {
@@ -999,8 +989,7 @@ ul {
 .main-menu .main-menu__list>li,
 .stricky-header .main-menu__list>li {
   /* margin-left: 70px; */
-  /* margin-left: 30px; */
-  margin-left: 0;
+  margin-left: 60px;
 }
 
 .main-menu .main-menu__list>li>a,
@@ -1017,7 +1006,6 @@ ul {
   position: relative;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
-  white-space: nowrap;
 }
 
 .main-menu .main-menu__list>li.dropdown>a {
@@ -1227,9 +1215,7 @@ ul {
 
 .main-menu .mobile-nav__toggler {
   position: relative;
-  /* display: inline-block; */
-  display: flex;
-  justify-content: flex-end;
+  display: inline-block;
   font-size: 20px;
   color: var(--wishon-black);
   cursor: pointer;
@@ -4548,8 +4534,7 @@ ul {
 }
 
 .donate-one__contact li {
-  /* margin: 15px 60px; */
-  margin: 15px 15px;
+  margin: 15px 60px;
 }
 
 .donate-one__contact li .icon {
