@@ -1957,8 +1957,8 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
 		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
-		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
-		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
+		// 2. The actual offset parent is a child of the scroll parent and the scroll parent isn't the document, which means that
+		//    the scroll is included in the initial calculation of the offset of the parent and never recalculated upon drag
 		if (this.cssPosition === "absolute" && this.scrollParent[0] !== document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
 			po.left += this.scrollParent.scrollLeft();
 			po.top += this.scrollParent.scrollTop();
@@ -2390,7 +2390,7 @@ $.ui.plugin.add( "draggable", "connectToSortable", {
 					ui.position = sortable.position;
 				}
 			} else {
-				// If it doesn't intersect with the sortable, and it intersected before,
+				// If it doesn't intersect with the sortable and it intersected before,
 				// we fake the drag stop of the sortable, but make sure it doesn't remove
 				// the helper by using cancelHelperRemoval.
 				if ( sortable.isOver ) {
@@ -3837,7 +3837,7 @@ $.ui.plugin.add("resizable", "animate", {
 						$(pr[0]).css({ width: data.width, height: data.height });
 					}
 
-					// propagating resize, and updating values for each animation step
+					// propagating resize and updating values for each animation step
 					that._updateCache(data);
 					that._propagate("resize", event);
 
@@ -5458,8 +5458,8 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 		// This is a special case where we need to modify a offset calculated on start, since the following happened:
 		// 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
-		// 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
-		//    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
+		// 2. The actual offset parent is a child of the scroll parent and the scroll parent isn't the document, which means that
+		//    the scroll is included in the initial calculation of the offset of the parent and never recalculated upon drag
 		if(this.cssPosition === "absolute" && this.scrollParent[0] !== this.document[0] && $.contains(this.scrollParent[0], this.offsetParent[0])) {
 			po.left += this.scrollParent.scrollLeft();
 			po.top += this.scrollParent.scrollTop();
@@ -5637,7 +5637,7 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		//Various things done here to improve the performance:
 		// 1. we create a setTimeout, that calls refreshPositions
 		// 2. on the instance, we have a counter variable, that get's higher after every append
-		// 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
+		// 3. on the local scope, we copy the counter variable and check in the timeout, if it's still the same
 		// 4. this lets only the last addition to the timeout stack through
 		this.counter = this.counter ? ++this.counter : 1;
 		var counter = this.counter;
@@ -14013,7 +14013,7 @@ color.fn = jQuery.extend( color.prototype, {
 					var cache = space.cache;
 					each( space.props, function( key, prop ) {
 
-						// if the cache doesn't exist, and we know how to convert
+						// if the cache doesn't exist and we know how to convert
 						if ( !inst[ cache ] && space.to ) {
 
 							// if the value was null, we don't need to copy it

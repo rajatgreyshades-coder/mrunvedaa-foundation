@@ -85,7 +85,7 @@ class PHPMailer
 
     /**
      * The message encoding.
-     * Options: "8bit", "7bit", "binary", "base64", and "quoted-printable".
+     * Options: "8bit", "7bit", "binary", "base64" and "quoted-printable".
      *
      * @var string
      */
@@ -1444,7 +1444,7 @@ class PHPMailer
      */
     public function punyencodeAddress($address)
     {
-        //Verify we have required functions, CharSet, and at-sign.
+        //Verify we have required functions, CharSet and at-sign.
         $pos = strrpos($address, '@');
         if (
             !empty($this->CharSet) &&
@@ -1452,7 +1452,7 @@ class PHPMailer
             static::idnSupported()
         ) {
             $domain = substr($address, ++$pos);
-            //Verify CharSet string is a valid one, and domain properly encoded in this CharSet.
+            //Verify CharSet string is a valid one and domain properly encoded in this CharSet.
             if ($this->has8bitChars($domain) && @mb_check_encoding($domain, $this->CharSet)) {
                 //Convert the domain from whatever charset it's in to UTF-8
                 $domain = mb_convert_encoding($domain, self::CHARSET_UTF8, $this->CharSet);
@@ -1553,7 +1553,7 @@ class PHPMailer
                 throw new Exception($this->lang('provide_address'), self::STOP_CRITICAL);
             }
 
-            //Validate From, Sender, and ConfirmReadingTo addresses
+            //Validate From, Sender and ConfirmReadingTo addresses
             foreach (['From', 'Sender', 'ConfirmReadingTo'] as $address_kind) {
                 $this->{$address_kind} = trim($this->{$address_kind});
                 if (empty($this->{$address_kind})) {
@@ -1729,7 +1729,7 @@ class PHPMailer
             //allow sendmail to choose a default envelope sender. It may
             //seem preferable to force it to use the From header as with
             //SMTP, but that introduces new problems (see
-            //<https://github.com/PHPMailer/PHPMailer/issues/2298>), and
+            //<https://github.com/PHPMailer/PHPMailer/issues/2298>) and
             //it has historically worked this way.
             $sendmailFmt = '%s -oi -t';
         }
@@ -1852,7 +1852,7 @@ class PHPMailer
     }
 
     /**
-     * Check whether a file path is safe, accessible, and readable.
+     * Check whether a file path is safe, accessible and readable.
      *
      * @param string $path A relative or absolute path to a file
      *
@@ -2803,7 +2803,7 @@ class PHPMailer
             //All ISO 8859, Windows codepage and UTF-8 charsets are ascii compatible up to 7-bit
             $bodyCharSet = static::CHARSET_ASCII;
         }
-        //If lines are too long, and we're not already using an encoding that will shorten them,
+        //If lines are too long and we're not already using an encoding that will shorten them,
         //change to quoted-printable transfer encoding for the body part only
         if (static::ENCODING_BASE64 !== $this->Encoding && static::hasLineLongerThanMax($this->Body)) {
             $bodyEncoding = static::ENCODING_QUOTED_PRINTABLE;
@@ -2817,7 +2817,7 @@ class PHPMailer
             //All ISO 8859, Windows codepage and UTF-8 charsets are ascii compatible up to 7-bit
             $altBodyCharSet = static::CHARSET_ASCII;
         }
-        //If lines are too long, and we're not already using an encoding that will shorten them,
+        //If lines are too long and we're not already using an encoding that will shorten them,
         //change to quoted-printable transfer encoding for the alt body part only
         if (static::ENCODING_BASE64 !== $altBodyEncoding && static::hasLineLongerThanMax($this->AltBody)) {
             $altBodyEncoding = static::ENCODING_QUOTED_PRINTABLE;
@@ -3229,7 +3229,7 @@ class PHPMailer
     }
 
     /**
-     * Attach all file, string, and binary attachments to the message.
+     * Attach all file, string and binary attachments to the message.
      * Returns an empty string on failure.
      *
      * @param string $disposition_type
@@ -3710,7 +3710,7 @@ class PHPMailer
 
     /**
      * Add an embedded (inline) attachment from a file.
-     * This can include images, sounds, and just about any other document type.
+     * This can include images, sounds and just about any other document type.
      * These differ from 'regular' attachments in that they are intended to be
      * displayed inline with the message, not just attached for download.
      * This is used in HTML messages that embed the images
@@ -3783,7 +3783,7 @@ class PHPMailer
 
     /**
      * Add an embedded stringified attachment.
-     * This can include images, sounds, and just about any other document type.
+     * This can include images, sounds and just about any other document type.
      * If your filename doesn't contain an extension, be sure to set the $type to an appropriate MIME type.
      *
      * @param string $string      The attachment binary data
@@ -3997,7 +3997,7 @@ class PHPMailer
     }
 
     /**
-     * Clear all filesystem, string, and binary attachments.
+     * Clear all filesystem, string and binary attachments.
      */
     public function clearAttachments()
     {
@@ -4186,7 +4186,7 @@ class PHPMailer
         }
         $name = trim($name);
         $value = (null === $value) ? '' : trim($value);
-        //Ensure name is not empty, and that neither name nor value contain line breaks
+        //Ensure name is not empty and that neither name nor value contain line breaks
         if (empty($name) || strpbrk($name . $value, "\r\n") !== false) {
             if ($this->exceptions) {
                 throw new Exception($this->lang('invalid_header'));

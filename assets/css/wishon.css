@@ -11406,7 +11406,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--wishon-primary);
+  background-color: #ec6b21; /*var(--wishon-primary);*/
   padding: 60px 60px 60px;
   border-bottom-left-radius: var(--wishon-bdr-radius);
   border-bottom-right-radius: var(--wishon-bdr-radius);

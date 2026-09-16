@@ -13,8 +13,8 @@ Copyright 2010 Manos Malihutsakis (email: manos@malihu.gr)
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
+to use, copy, modify, merge, publish, distribute, sublicense and/or sell
+copies of the Software and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in
@@ -1197,7 +1197,7 @@ and dependencies (minified).
 			/* 
 			TOUCH SWIPE EVENTS
 			scrolls content via touch swipe 
-			Emulates the native touch-swipe scrolling with momentum found in iOS, Android and WP devices 
+			Emulates the native touch-swipe scrolling with momentum found in iOS android and WP devices 
 			*/
 			_contentDraggable:function(){
 				var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
